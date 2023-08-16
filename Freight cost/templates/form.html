@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b368c68ac4.js" crossorigin="anonymous"></script>
+  <!-- <link rel="stylesheet" href="/static/css/style.css"> -->
+  <meta charset="UTF-8">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body background="/static/images/bgimg.webp">
+  <div style="width: 603px; margin-left: 30%; color: rgb(14, 3, 14); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+    <form action="/prediction" method="post" id="input head">
+    <center>
+    <h1 style="padding-top: 10px; padding-bottom: 25px; color: rgb(255, 255, 255);">Freight Cost Prediction</h1>
+    <h5>Unit Of Measure(Per Pack)</h5>
+    <div class="input-group mb-3" style="width: 361px;">
+      <!-- <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-indian-rupee-sign"></i></span> -->
+      <input type="number" class="form-control" placeholder="Enter the Unit of measure" aria-label="Username" aria-describedby="basic-addon1" value="uom">
+    </div>
+    <h5 style="color: rgb(3, 3, 3);">Line Item Quantity</h5>
+    <div class="input-group mb-3" style="width: 361px;">
+      <!-- <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-indian-rupee-sign"></i></span> -->
+      <input type="number" class="form-control" placeholder="Enter the line item quantity" aria-label="Username" aria-describedby="basic-addon1" value="liq">
+    </div>
+    <h5 style="color: rgb(0, 0, 0);">Pack Price</h5>
+    <div class="input-group mb-3" style="width: 361px;">
+      <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+      <input type="number" class="form-control" placeholder="Enter the Pack price" aria-label="Username" aria-describedby="basic-addon1" value="pp">
+    </div>
+    <h5 style="color: rgb(0, 0, 0);">Unit Price</h5>
+    <div class="input-group mb-3" style="width: 361px;">
+      <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+      <input type="number" class="form-control" placeholder="Enter the Unit price" aria-label="Username" aria-describedby="basic-addon1" value="up">
+    </div>
+    <h5 style="color: rgb(0, 0, 0);">Line Item Insurance</h5>
+    <div class="input-group mb-3" style="width: 361px;">
+      <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+      <input type="number" class="form-control" placeholder="Enter the Line Item Insurance" aria-label="Username" aria-describedby="basic-addon1" value="lii">
+    </div>  
+    <label style="margin-bottom: 3%;"><h5>First Line Designation :</h5></label>
+    <input type="radio" name="fld" value="YES" style="margin-left: 5%;">YES
+    <input type="radio" name="fld" value="NO" style="margin-left: 2%;">NO<br>
+    
+    <label for="sm" style="margin-right: 10%; margin-bottom: 3%;"><h5>Shipment Mode :</h5></label>
+    <select id="shipm" name="shipmode">
+    <option value="Air">Air</option>
+    <option value="Truck">Truck</option>
+    <option value="Sea">Sea</option>
+    <option value="Air Charter">Air Charter</option>
+  </select><br>
+
+  <label for="sm" style="margin-right: 4%; margin-bottom: 3%;"><h5>Destination Country :</h5></label>
+    <select id="shipm" name="shipmode">
+    <option value="South Africa">South Africa</option>
+    <option value="Nigeria">Nigeria</option>
+    <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+    <option value="Uganda">Uganda</option>
+    <option value="Vietnam">Vietnam</option>
+    <option value="Zambia">Zambia</option>
+    <option value="Haiti">Haiti</option>
+    <option value="Mozambique">Mozambique</option>
+    <option value="Zimbabwe">Zimbabwe</option>
+    <option value="Tanzania">Tanzania</option>
+    <option value="Rwanda">Rwanda</option>
+    <option value="Congo, DRC">Congo, DRC</option>
+    <option value="Other">Other</option>
+  </select><br>
+  <label for="sm" style="margin-right: 1%; margin-bottom: 3%;"><h5>Manufacturing Country :</h5></label>
+    <select id="shipm" name="shipmode">
+    <option value="South Africa">South Africa</option>
+    <option value="India">India</option>
+    <option value="Canada">Canada</option>
+    <option value="Korea">Korea</option>
+    <option value="Cyprus">Cyprus</option>
+    <option value="Norway">Norway</option>
+    <option value="Australia">Australia</option>
+    <option value="US">US</option>
+    <option value="Greece">Greece</option>
+    <option value="Switzerland">Switzerland</option>
+    <option value="Germany">Germany</option>
+    <option value="Spain">Spain</option>
+    <option value="Japan">Japan</option>
+    <option value="USA">USA</option>
+    <option value="Netherlands">Netherlands</option>
+    <option value="UK">UK</option>
+    <option value="Italy">Italy</option>
+    <option value="Poland">Poland</option>
+    <option value="France">France</option>
+    <option value="Other">Other</option>
+  </select><br>
+  <button type="button" class="btn btn-primary" style="background-color: rgb(216, 99, 21); margin-bottom: 1%;">PREDICT</button>
+
+  
+
+    </center>
+    </form>
+
+ 
+
+  </div>
+</body>
+</html>
